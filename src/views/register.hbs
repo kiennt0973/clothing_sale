@@ -1,0 +1,26 @@
+<h1 class="ml-4"> Đăng ký</h1>
+<div class="mt-4 container-fluid ">
+    Username: <input type="text" id="username"> </br>
+    Password: <input type="text" id="password" class="mt-2"> </br>
+    <button onclick="login()" class="mt-2">Register</button>
+</div>
+
+
+<script>
+
+    function login(){
+        axios.post('/register', {
+            username: $('#username').val(),
+            password: $('#password').val()
+        })
+        .then(data => {
+            console.log(data)
+            {{!-- window.location.replace("/wellcome") --}}
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+
+
+</script>

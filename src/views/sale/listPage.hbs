@@ -1,0 +1,26 @@
+
+<h2 class="page-title mt-4">List Page</h2>
+<a href="/sale/admin/addpage" class="btn btn-primary">Add a New Page</a>
+<br><br>
+
+
+<table class="table table-striped">
+
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        {{#each pages}}
+            <td>{{this.title}}</td>
+            <td><a href="/sale/admin/editpage{{this.slug}}">Edit</a></td>
+            <td><a id="delete" class="confirmDelete" href="/sale/admin/deletepage/{{this._id}}">Delete</a></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+

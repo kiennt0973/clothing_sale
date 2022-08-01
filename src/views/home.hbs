@@ -1,0 +1,145 @@
+
+
+<div class="owl-carousel owl-theme">
+    <div class="item">
+        <div class="goToShop" id="slide-01">
+            <div class="topToCenter">
+            <h2>Wellcome to NTK Shop</h2><br>
+            <a href="/product/allproduct">Shopping Now</a>
+            </div>
+        </div>    
+    </div>
+    <div class="item">
+        <div class="goToShop" id="slide-02">
+            <div class="topToCenter">
+            <h2>Wellcome to NTK Shop</h2><br>
+            <a href="/product/allproduct">Shopping Now</a>
+            </div>
+        </div>    
+    </div>
+    <div class="item">
+        <div class="goToShop" id="slide-03">
+            <div class="topToCenter">
+            <h2>Wellcome to NTK Shop</h2><br>
+            <a href="/product/allproduct">Shopping Now</a>
+            </div>
+        </div>    
+    </div>
+</div>
+
+{{!--  --}}
+<div class="container-fluid">
+    <div class="row">
+    {{!-- <div class="col-xl-12" style="justify-content: space-around;"> --}}
+        {{!-- row1 --}}
+        <div class="col-7">
+            <div class="row">
+                <div class="col-5"> 
+                    <div class="row">
+                        <div class="col">
+                            <a class="to-product d-flex" href="">
+                                <img class="img-home-product" src="/img/assc.jpg" alt=" ">
+                                <div class="tag-product">
+                                <p>T-Shirt</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a class="to-product d-flex" href="">
+                                <img class="img-home-product" src="/img/assc.jpg" alt=" ">
+                                <div class="tag-product">
+                                <p>T-Shirt</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-7">
+                    <a class="to-product d-flex" href="">
+                        <img class="img-home-product" src="/img/PINE_JEAN_1.png" alt=" ">
+                        <div class="tag-product">
+                        <p>Pants</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-5">
+            <div class="row">
+                <div class="col-12">
+                    {{!-- <div class="col"> --}}
+                    <a class="to-product d-flex" href="">
+                        <img class="img-home-product" src="/img/sacai_low.jpg" alt=" ">
+                        <div class="tag-product">
+                        <p>Sneaker</p>
+                        </div>
+                    </a>
+                    {{!-- </div> --}}
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{!-- </div> --}}
+</div>
+                <div class="col-12">
+                    <a class="to-product d-flex" href="">
+                        <img class="img-home-product" src="/img/sacai_low.jpg" alt=" ">
+                        <div class="tag-product">
+                        <p>Sneaker</p>
+                        </div>
+                    </a>
+                </div>
+
+
+                <div class="col-6">
+                    <a class="to-product d-flex col" href=""> 
+                        <img class="img-home-product" src="/img/varsity-1.jpg" alt=" ">
+                        <div class="tag-product">
+                        <p>Jacket</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a class="to-product d-flex col" href=""> 
+                        <img class="img-home-product" src="/img/varsity-1.jpg" alt=" ">
+                        <div class="tag-product">
+                        <p>Jacket</p>
+                        </div>
+                    </a>
+                </div>
+<script>
+let owl = $('.owl-carousel');
+owl.owlCarousel({
+    items:4,
+    loop:true,
+    margin:10,
+    {{!-- autoplay:true, --}}
+    autoplayTimeout:3000,
+    autoplayHoverPause:true,
+    nav: true,
+    responsive: {
+        0:{
+            items: 1
+        },576:{
+            items: 1
+        }, 768:{
+            items:1
+        }, 1200:{
+            items:1
+        }
+    }
+})
+$('.play').on('click',function(){
+    owl.trigger('play.owl.autoplay',[1000])
+})
+$('.stop').on('click',function(){
+    owl.trigger('stop.owl.autoplay')
+})
+
+
+</script>

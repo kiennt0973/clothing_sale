@@ -1,0 +1,55 @@
+<h2>My Cart</h2>
+
+{{#if cart}}
+<table class="table table-striped alignmiddle">
+    <tr>
+        <th>Iamge</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th></th>
+        <th>Subtotal</th>
+    </tr>
+    {{{checkOut cart}}}
+    <tr>
+        <td colspan="5"></td>
+        <td align="center"><b>Total: </b>${{totalBill}}</td>
+    </tr>
+    <tr>
+        <td colspan="5" align="right">
+            <a class="clearCart btn btn-danger" href="/cart/clear">Clear Cart</a>
+        </td>
+        <td colspan="1" align="center">
+            <a class="btn btn-primary buynow" href="/cart/buynow">Buy now</a>
+        </td>
+    </tr>
+</table>
+
+{{!-- Check Out Paypal --}}
+
+<form class="pp" action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
+   <input type="hidden"name="cmd"value="_cart">
+   <input type="hidden"name="upload"value="1">
+   <input type="hidden"name="business"value="kiennguyen0973@gmail.com">
+    {{{PayPal cart}}}
+   <input type="hidden"name="currency_code"value="USD">
+   <input type="hidden"name="amount"value="{{totalBill}}">
+   <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+{{else}}
+<h3 class="text-center">Your cart is empty</h3>
+{{/if}}
+
+
+<script>
+$('a.buynow').click((event)=>{
+    event.preventDefault()
+    $.get('/cart/buynow',function (){
+        $('form.pp input[type=image]').click()
+        $('.ajaxbg').show()
+    })
+})
+
+</script>
+

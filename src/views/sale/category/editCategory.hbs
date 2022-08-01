@@ -1,0 +1,13 @@
+
+<h2 class="page-title mt-4">Edit Category</h2>
+<a href="/sale/category" class="btn btn-primary">Back to All Category</a>
+<br><br>
+
+<form method="POST" action="/sale/category/edit{{slug}}">
+    <div class="form-group">
+        <label for="">Title</label>
+        <input type="text" class="form-control" name="title" value="{{title}}" placeholder="Title">
+    </div>
+
+    <button class="btn btn-primary">Submit</button>
+</form>

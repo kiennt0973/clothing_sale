@@ -1,0 +1,61 @@
+<div class="mt-4 container-fluid ">
+    {{!-- <form action="/login" method="POST"> --}}
+    Username: <input type="text" placeholder="Username" name="username" id="username" required> </br>
+    Password: <input type="text" placeholder="Password" name="password" id="password" class="mt-2" required> </br>
+    <button type="button" onclick="login()" class="mt-2 btn-authen-local">Login</button></br>
+    
+    <div class="btn-both mt-4">
+            <button class="btn-authen-social-gg">
+            <a class="btn-login-social" href="/login/auth/google">
+                <img class="icon-social-gg" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+                <p class="btn-text-gg"><b>Sign in with google</b></p>  
+            </a>
+            </button>
+
+            <button class="btn-authen-social-fb">
+            <a class="btn-login-social" href="/login/auth/facebook">
+                <img class="icon-social-fb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Facebook-icon-1.png/640px-Facebook-icon-1.png"/>
+                <p class="btn-text-fb"><b>Sign in with facebook</b></p>  
+            </a>
+            </button>
+    </div>
+    {{!-- </form> --}}
+    {{!-- <button onclick="login()" class="mt-2">Login</button> --}}
+</div>
+
+<script>
+{{!-- Cookie --}}
+var getCookies = function(){
+  var pairs = document.cookie.split(";");
+  var cookies = {};
+  for (var i=0; i<pairs.length; i++){
+    var pair = pairs[i].split("=");
+    cookies[(pair[0]+'').trim()] = unescape(pair.slice(1).join('='));
+  }
+  return cookies;
+}
+
+    $(document).keyup(event=>{
+        if(event.key == 'Enter') {
+            login()
+        }
+    })
+    function login(){
+            {{!-- console.log(window.KeyboardEvent.name) --}}
+        axios.post('/login', {
+            username: $('#username').val(),
+            password: $('#password').val()
+        })
+        .then(data => {
+            if (getCookies().token) {
+            window.location.replace("/wellcome")
+            } else {
+            window.location.replace("/login")
+            }
+        })
+        .catch(err => {
+            alert('Tài khoản hoặc mật khẩu không đúng')
+        })
+    }
+
+</script>
